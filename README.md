@@ -2,8 +2,9 @@
 
 ABSTRACT MODEL:
 A user of Cuisine Website can login using their twitter handle. This will enable them to search for their favourite foods and celebrity chefs on our website.
-UML DIAGRAM FOR CUISINE WEBSITE
-SQL Statements for Conceptual Model
+
+**
+SQL Statements for Conceptual Model**
 User Table:-
 CREATE TABLE `User` (
 `Username` VARCHAR(100),
@@ -40,7 +41,8 @@ CREATE TABLE `popular hashtags` (
 `tweet_volume` VARCHAR(200),
 PRIMARY KEY (`trend_name `)
 );
-USE-CASES
+
+**USE-CASES**
 1. Use Case: Search for spicy Indian dishes
 Description: User searches for spicy Indian dishes
 Actor: User
@@ -81,7 +83,8 @@ Steps:
 Actor action: User views most popular tweets by a chef
 System Responses: User views most popular tweets by a chef
 Post Condition: system displays list of popular tweets by a chef
-SQL for USE CASES
+
+**SQL for USE CASES**
 1. SELECT * FROM recipe
 WHERE spiciness = “Most Spicy” AND cuisine = “Indian Subcontinent”;
 σ{spiciness = “Most Spicy” ∧ cuisine = “Indian Subcontinent”}(recipe)
@@ -94,12 +97,24 @@ WHERE dish.dish_name = “%fried rice%” AND dish.recipe_id = recipe.recipe_id;
 WHERE keyword = “#chickenbiryani”;
 5. SELECT * FROM checftweets
 ORDER BY LIKES DESC;
-RELATIONAL-ALGEBRA EXPRESSIONS FOR THE USE CASES
+
+**RELATIONAL-ALGEBRA EXPRESSIONS FOR THE USE CASES**
 1. σspiciness = “Most Spicy” ∧ cuisine = “Indian Subcontinent” recipe
 2. σspiciness = “Sweet” recipe
 3. Π dish.recipe_id, dish.dish_name, recipe.ingredient_name σdish.dish_name = “%fried rice%” ∧ dish.recipe_id = recipe.recipe_id recipe
 4. σkeyword = “#chickenbiryani” hashtag
 5. σ keyword = “#chickenbiryani” hashtag
-SQL for 7 questions
-1. What user posted this tweet? SELECT username FROM tweets WHERE tweet_id = '1591501045959647232'; 2. When did the user post this tweet? SELECT created_at FROM tweets WHERE username= gordonramsay;
-3. What tweets have this user posted in the past 24 hours? SELECT Tweet_text FROM twitterscraping.user WHERE Created_at > now() – interval 24 hour; 4. How many tweets have this user posted in the past 24 hours? SELECT count(text) FROM twitterscraping.user WHERE Created_at >= NOW() - interval 24 hour; 5. When did this user join Twitter? SELECT Joined_at FROM tweets WHERE screen_name = '1591501045959647232'; 6. What keywords/ hashtags are popular? SELECT * FROM twitterscraping.hashtags ORDER BY Tweet_Volume desc; 7. What tweets are popular? SELECT Tweet_text, Likes FROM twitterscraping.cheftweets ORDER BY Likes desc;
+
+**SQL for 7 questions**
+1. What user posted this tweet? 
+SELECT username FROM tweets WHERE tweet_id = '1591501045959647232'; 
+2. When did the user post this tweet? 
+SELECT created_at FROM tweets WHERE username= gordonramsay;
+3. What tweets have this user posted in the past 24 hours? 
+SELECT Tweet_text FROM twitterscraping.user WHERE Created_at > now() – interval 24 hour; 
+4. How many tweets have this user posted in the past 24 hours? 
+SELECT count(text) FROM twitterscraping.user WHERE Created_at >= NOW() - interval 24 hour; 
+5. When did this user join Twitter? 
+SELECT Joined_at FROM tweets WHERE screen_name = '1591501045959647232'; 
+6. What keywords/ hashtags are popular? 
+SELECT * FROM twitterscraping.hashtags ORDER BY Tweet_Volume desc; 7. What tweets are popular? SELECT Tweet_text, Likes FROM twitterscraping.cheftweets ORDER BY Likes desc;
