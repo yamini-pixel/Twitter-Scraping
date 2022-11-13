@@ -4,8 +4,7 @@ ABSTRACT MODEL:
 
 A user of Cuisine Website can login using their twitter handle. This will enable them to search for their favourite foods and celebrity chefs on our website.
 
-**
-SQL Statements for Conceptual Model**
+**SQL Statements for Conceptual Model**
 
 User Table:-
 
