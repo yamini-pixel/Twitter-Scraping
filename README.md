@@ -5,7 +5,9 @@ A user of Cuisine Website can login using their twitter handle. This will enable
 
 **
 SQL Statements for Conceptual Model**
+
 User Table:-
+
 CREATE TABLE `User` (
 `Username` VARCHAR(100),
 `name` VARCHAR(20),
@@ -13,12 +15,16 @@ CREATE TABLE `User` (
 `description` VARCHAR(100),
 PRIMARY KEY (`Username’)
 );
+
 Website Table:-
+
 CREATE TABLE ‘Website_User’ (
 ‘Username’ VARCHAR(100),
 PRIMARY KEY (`Username `)
 );
+
 Dish Table:-
+
 CREATE TABLE `Dish` (
 `recipe_id` VARCHAR(100),
 `dish_name` VARCHAR(100),
@@ -27,14 +33,18 @@ CREATE TABLE `Dish` (
 `spiciness` VARCHAR(100),
 PRIMARY KEY (`recipe_id `)
 );
+
 Recipe Table:-
+
 CREATE TABLE `Recipe` (
 `recipe_id` VARCHAR(100),
 `ingredients` VARCHAR(100),
 `recipe` VARCHAR(200),
 FOREIGN KEY (`recipe_id `)
 );
+
 Popular hashtags Table:-
+
 CREATE TABLE `popular hashtags` (
 `trend_name` VARCHAR(100),
 `trend_url` VARCHAR(100),
